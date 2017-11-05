@@ -1,0 +1,334 @@
+
+set $mod Mod4
+set $mod_a Mod1
+
+set $base00 #101218
+set $base01 #1f222d
+set $base02 #252936
+set $base03 #7780a1
+set $base04 #C0C5CE
+set $base05 #d1d4e0
+set $base06 #C9CCDB
+set $base07 #ffffff
+set $base08 #ee829f
+set $base09 #f99170
+set $base0A #ffefcc
+set $base0B #a5ffe1
+set $base0C #97e0ff
+set $base0D #97bbf7
+set $base0E #c0b7f9
+set $base0F #fcc09e
+
+# Set my workspaces
+set $workspace1 "1: "
+set $workspace2 "2: "
+set $workspace3 "3: "
+set $workspace4 "4: "
+set $workspace5 "5: "
+set $workspace6 "6: "
+set $workspace7 "7: "
+set $workspace8 "8: "
+set $workspace9 "9: "
+set $workspace10 "10: [  ]"
+set $workspace11 "11: [ MD]"
+set $workspace12 "12: "
+set $workspace13 "13: "
+set $workspace14 "14: "
+set $workspace15 "15: "
+
+
+set_from_resource	  $background_i3wmthemer	background
+set_from_resource	  $foreground_i3wmthemer	foreground
+set_from_resource	  $color00_i3wmthemer		  color0
+set_from_resource 	$color01_i3wmthemer 	    color1
+set_from_resource 	$color02_i3wmthemer 	    color2
+set_from_resource 	$color03_i3wmthemer 	    color3
+set_from_resource 	$color04_i3wmthemer 	    color4
+set_from_resource 	$color05_i3wmthemer 	    color5
+set_from_resource 	$color06_i3wmthemer		  color6
+set_from_resource	  $color07_i3wmthemer		  color7
+set_from_resource	  $color08_i3wmthemer		  color8
+set_from_resource	  $color09_i3wmthemer		  color9
+set_from_resource	  $color10_i3wmthemer	    color10
+set_from_resource	  $color11_i3wmthemer	    color11
+set_from_resource	  $color12_i3wmthemer	    color12
+set_from_resource	  $color13_i3wmthemer	    color13
+set_from_resource	  $color14_i3wmthemer	    color14
+set_from_resource	  $color15_i3wmthemer	    color15
+
+# Configure border style <normal|1pixel|pixel xx|none|pixel>
+new_window pixel 1
+new_float pixel 1
+hide_edge_borders both
+floating_modifier $mod
+font pango:System San Francisco Display 11
+focus_follows_mouse no
+bindsym $mod+Shift+r reload
+bindsym $mod+Shift+c restart
+# cl    ass                 border  backgr. text    indic.  child_border
+client.focused         	$foreground_i3wmthemer	$background_i3wmthemer	$foreground_i3wmthemer	$color04_i3wmthemer		$color04_i3wmthemer
+client.focused_inactive	$foreground_i3wmthemer	$background_i3wmthemer	$foreground_i3wmthemer	$background_i3wmthemer	$background_i3wmthemer
+client.unfocused       	$foreground_i3wmthemer	$background_i3wmthemer	$foreground_i3wmthemer	$background_i3wmthemer	$background_i3wmthemer
+client.urgent		        $foreground_i3wmthemer	$background_i3wmthemer	$foreground_i3wmthemer	$background_i3wmthemer	$background_i3wmthemer
+client.background	$background_i3wmthemer
+gaps inner 10
+gaps outer -4
+smart_gaps on
+smart_borders on
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Shift+q kill
+bindsym $mod+d exec rofi -show run -font "System San Francisco Display 20" -lines 3 -eh 2 -width 100 -padding 400 -opacity "95" -bw 0 -config ~/.rofirc
+bindsym $mod+z exec --no-startup-id morc_menu
+
+# On start
+exec --no-startup-id volumeicon
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id nm-applet
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id pamac-tray
+exec --no-startup-id clipit
+exec --no-startup-id start_conky_maia
+exec --no-startup-id start_conky_green
+exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id franz-bin
+exec --no-startup-id twmnd
+exec sh /home/$USER/.ripper/screens/$MYNAME.sh
+
+# change focus
+bindsym $mod+h     focus left
+bindsym $mod+j     focus down
+bindsym $mod+k     focus up
+bindsym $mod+l     focus right
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h     move left
+bindsym $mod+Shift+j     move down
+bindsym $mod+Shift+k     move up
+bindsym $mod+Shift+l     move right
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+
+# switch to workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
+bindsym $mod+F1 workspace $workspace11
+bindsym $mod+F2 workspace $workspace12
+bindsym $mod+F3 workspace $workspace13
+bindsym $mod+F4 workspace $workspace14
+bindsym $mod+F5 workspace $workspace15
+
+#navigate workspaces next / previous
+bindsym $mod+Ctrl+l workspace next
+bindsym $mod+Ctrl+h workspace prev
+
+# Move wordspace to other output
+bindsym $mod+$mod_a+l move workspace to output left
+bindsym $mod+$mod_a+Left move workspace to output left
+bindsym $mod+$mod_a+h move workspace to output right
+bindsym $mod+$mod_a+Right move workspace to output right
+bindsym $mod+$mod_a+k move workspace to output up
+bindsym $mod+$mod_a+Up move workspace to output up
+bindsym $mod+$mod_a+j move workspace to output down
+bindsym $mod+$mod_a+Down move workspace to output down
+
+# Move to workspace with focused container
+bindsym $mod+Shift+1 move container to workspace $workspace1; workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2; workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3; workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4; workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5; workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6; workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7; workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8; workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9; workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10; workspace $workspace10
+bindsym $mod+Shift+F1 move container to workspace $workspace11; workspace $workspace11
+bindsym $mod+Shift+F2 move container to workspace $workspace12; workspace $workspace12
+bindsym $mod+Shift+F3 move container to workspace $workspace13; workspace $workspace13
+bindsym $mod+Shift+F4 move container to workspace $workspace14; workspace $workspace14
+bindsym $mod+Shift+F5 move container to workspace $workspace15; workspace $workspace15
+
+# workspace back and forth (with/without active container)
+workspace_auto_back_and_forth yes
+bindsym $mod+b workspace back_and_forth
+bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+
+# split orientation
+bindsym $mod+o split h;exec notify-send 'tile horizontally'
+bindsym $mod+v split v;exec notify-send 'tile vertically'
+bindsym $mod+q split toggle
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+s sticky toggle
+bindsym $mod+a focus parent
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+bindsym $mod_a+Shift+n exec setxkbmap latam;exec twmnc -t 'Change Language' -c 'Change to LATAM'
+bindsym $mod_a+Shift+e exec setxkbmap us;exec twmnc -t 'Change Language' -c 'Change to US'
+
+# Open applications on specific workspaces
+assign [class="Dolphin"] $workspace2
+
+# Open specific applications in floating mode
+for_window [urgent=latest] focus
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="Calamares"] floating enable border normal
+for_window [class="Clipgrab"] floating enable
+for_window [title="File Transfer*"] floating enable
+for_window [class="Galculator"] floating enable border pixel 1
+for_window [class="GParted"] floating enable border normal
+for_window [title="i3_help"] floating enable sticky enable border normal
+for_window [class="Lightdm-gtk-greeter-settings"] floating enable
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Manjaro Settings Manager"] floating enable border normal
+for_window [class="Manjaro Welcome"] floating enable
+for_window [title="MuseScore: Play Panel"] floating enable
+for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Oblogout"] fullscreen enable
+for_window [class="octopi"] floating enable
+for_window [class="Pamac-manager"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
+for_window [class="Simple-scan"] floating enable border normal
+for_window [class="(?i)System-config-printer.py"] floating enable border normal
+for_window [class="Skype"] floating enable border normal
+for_window [class="Thus"] floating enable border normal
+for_window [class="Timeset-gui"] floating enable border normal
+for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="Xfburn"] floating enable
+for_window [title="Spotify"] floating enable, move scratchpad, scratchpad show, resize set 1300 800, move position center, mark spotify
+for_window [title="Google Play Music Desktop Player"] floating enable, move scratchpad, scratchpad show, resize set 900 800, move position center, mark gmusic
+for_window [title="Inbox • Nozbe"] floating enable, move scratchpad, scratchpad show, resize set 1500 800, move position center, mark nozbe
+for_window [class="Franz"] floating enable, move scratchpad, scratchpad show, resize set 1500 900, move position center, mark franz
+for_window [title="todoist"] floating enable, move scratchpad, scratchpad show, resize set 900 800, move position center, mark todo
+for_window [title="Pomodoro Timer"] floating enable, move scratchpad, scratchpad show, resize set 600 900, move position center, mark timer
+for_window [instance="yakuake"] floating enable;
+# Shortcuts
+bindsym $mod_a+Shift+d --no-startup-id exec dolphin
+bindsym $mod_a+Shift+s exec --no-startup-id spotify
+bindsym $mod_a+Shift+m exec --no-startup-id gpmdp
+bindsym $mod_a+Shift+p exec /usr/bin/chromium --profile-directory=Default --app-id=hfgjlgjnpkpmnpojkkpfkogapiclopop
+bindsym $mod_a+Shift+f exec --no-startup-id franz-bin
+bindsym $mod_a+Shift+t exec /usr/bin/chromium --profile-directory=Default --app-id=bgjohebimpjdhhocbknplfelpmdhifhd
+bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+
+# Scratchpad windows
+bindsym $mod_a+s [con_mark="^spotify$"] scratchpad show
+bindsym $mod_a+m [con_mark="^gmusic$"] scratchpad show
+bindsym $mod_a+n [con_mark="^nozbe$"] scratchpad show
+bindsym $mod_a+f [con_mark="^franz$"] scratchpad show
+bindsym $mod_a+p [con_mark="^timer$"] scratchpad show
+
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Set shut down, restart and locking features
+bindsym $mod_a+0 mode "$mode_system"
+set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
+mode "resize" {
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
+        bindsym j resize shrink height 5 px or 5 ppt
+        bindsym k resize grow height 5 px or 5 ppt
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# Lock screen
+bindsym $mod_a+9 exec --no-startup-id blurlock
+
+# Start i3bar to display a workspace bar (plus the system information i3status if available)
+bar {
+	status_command i3status
+	bindsym button4 nop
+	bindsym button5 nop
+	font pango:System San Francisco Display,Icons 13
+    position top
+
+	colors {
+        separator $base03
+        background $base01
+        statusline $base05
+#                          border  backgr. text
+        focused_workspace  $base01 $base01    $base07
+        active_workspace   $base01 $base02    $base03
+        inactive_workspace $base01 $base01    $base03
+        urgent_workspace   $base01 $base01    $base08
+        }
+}

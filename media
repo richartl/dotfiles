@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# This task download the audio of youtube video, this task requires youtube-dl
+# @param youtube url
+
+yda () {
+
+    if [ -z "$1" ]; then
+        echo "The video url is required, like https://www.youtube.com/watch?v=A5UxoazzeOc"
+        exit
+    fi
+
+    echo -e "\n \e[92m Download audio for $1\e[0m"
+    chk_folders
+    youtube-dl -x --audio-format "mp3" -o $RIPPER_MEDIA_ROOT/ripper_media_audio/%\(title\)s.%\(ext\)s $1
+}
+
+
+
+
+# Check if folders for media downloads exists
+chk_folders () {
+    if [ ! -d "$RIPPER_MEDIA_ROOT/ripper_media_audio/" ]; then
+        echo -e "\n \e[92m Create ripper media audio folder\e[0m"
+        mkdir -p $RIPPER_MEDIA_ROOT/ripper_media_audio/
+    fi
+    if [ ! -d "$RIPPER_MEDIA_ROOT/ripper_media_video/" ]; then
+        echo -e "\n \e[92m Create ripper media video folder\e[0m"
+        mkdir -p $RIPPER_MEDIA_ROOT/ripper_media_video/
+    fi
+}

@@ -1,0 +1,151 @@
+"PLUGINS
+    Plugin 'editorconfig/editorconfig-vim'
+    Plugin 'joonty/vim-phpqa.git'
+    Plugin 'christoomey/vim-tmux-navigator'
+    Plugin 'ryanoasis/vim-devicons'
+    Plugin 'junegunn/vim-emoji'
+    Plugin 'maxmellon/vim-jsx-pretty'
+    Plugin 'nvie/vim-flake8'
+
+"NERDTree
+    let g:NERDTreeWinPos = "right"
+
+
+"Theme
+    syntax on
+    colorscheme onedark
+
+    hi ColorColumn ctermbg=234 guibg=#293739
+
+
+    " Higlight current column.
+    au WinLEave * set nocursorcolumn
+    au WinEnter * set cursorcolumn
+    au BufNewFile,BufRead *.ejs set filetype=html
+    set nofoldenable
+
+
+"Line break
+    set background=dark             " Theme background
+    set wrap linebreak nolist       " Warp text
+
+"VIM AIRLINE
+        set laststatus=2
+        let g:airline#extensions#tabline#enabled = 1
+        let g:airline_theme='durant'
+        let g:airline_powerline_fonts = 1
+        if !exists('g:airline_symbols')
+            let g:airline_symbols = {}
+        endif
+
+        let g:airline_left_sep = ''
+        let g:airline_left_alt_sep = ''
+        let g:airline_right_sep = ''
+        let g:airline_right_alt_sep = ''
+        let g:airline_symbols.branch = ''
+        let g:airline_symbols.readonly = ''
+        let g:airline_symbols.linenr = ''
+        let g:airline_symbols.crypt = ''
+        let g:airline_symbols.linenr = '␊'
+        let g:airline_symbols.linenr = '␤'
+        let g:airline_symbols.linenr = '¶'
+        let g:airline_symbols.branch = '⎇'
+        let g:airline_symbols.paste = 'ρ'
+        let g:airline_symbols.paste = 'Þ'
+        let g:airline_symbols.paste = '∥'
+        let g:airline_symbols.notexists = '∄'
+        let g:airline_symbols.whitespace = 'Ξ'
+
+"PHP LINTER
+    let g:phpqa_codesniffer_args = "--standard=PSR1,PSR2"
+    let g:phpqa_messdetector_ruleset = "~/.config/composer/vendor/bin/phpmd"
+    let g:phpqa_codesniffer_cmd = "~/.config/composer/vendor/bin/phpcs"
+
+    let g:syntastic_ruby_checkers=['rubocop', 'mri']
+
+"CUSTOM HOT KEYS
+    set hidden
+    nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+    nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+    nnoremap <C-X> :bd<CR>      " close single buffer, if has changes needs ! to force"
+
+"OTHERS AND FRIENDS
+    set t_Co=256
+    set nofoldenable
+    filetype plugin indent on
+    set encoding=utf-8
+    "set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
+    set guifont=Monospace\ 12
+
+" NERDTress File highlighting
+    function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+        exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+        exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+    endfunction
+
+    call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#282C34')
+    call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#282C34')
+    call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#282C34')
+    call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#282C34')
+    call NERDTreeHighlightFile('config', 'brown', 'none', 'brown', '#282C34')
+    call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#282C34')
+    call NERDTreeHighlightFile('json', 'cyan', 'none', 'cyan', '#282C34')
+    call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#282C34')
+    call NERDTreeHighlightFile('styl', 'Magenta', 'none', 'Magenta', '#282C34')
+    call NERDTreeHighlightFile('css', 'Magenta', 'none', 'Magenta', '#282C34')
+    call NERDTreeHighlightFile('coffee', 'Gray', 'none', 'Gray', '#282C34')
+    call NERDTreeHighlightFile('js', 'yellow', 'none', 'yellow', '#282C34')
+    call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#282C34')
+    call NERDTreeHighlightFile('ds_store', 'Gray', 'none', '#686868', '#282C34')
+    call NERDTreeHighlightFile('gitconfig', 'Gray', 'none', '#686868', '#282C34')
+    call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686868', '#282C34')
+    call NERDTreeHighlightFile('bashrc', 'Gray', 'none', '#686868', '#282C34')
+    call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#282C34')
+
+    highlight ExtraWhitespace ctermbg=red guibg=red
+    match ExtraWhitespace /\s\+\%#\@<!$/
+    au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+    au InsertLeave * match ExtraWhitespace /\s\+$/
+
+
+    if exists("g:loaded_webdevicons")
+      call webdevicons#refresh()
+    endif
+
+    let g:WebDevIconsNerdTreeAfterGlyphPadding=' '
+    let g:WebDevIconsUnicodeDecorateFolderNodes=1
+    let g:webdevicons_enable_unite=1
+    let g:webdevicons_enable_flagship_statusline=1
+    let g:WebDevIconsNerdTreeGitPluginForceVAlign=1
+    let g:webdevicons_conceal_nerdtree_brackets=1
+
+    let g:rainbow_active=1
+    let g:rainbow_conf={
+    \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+    \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+    \   'operators': '_,_',
+    \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+    \   'separately': {
+    \       '*': {},
+    \       'tex': {
+    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+    \       },
+    \       'lisp': {
+    \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+    \       },
+    \       'vim': {
+    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+    \       },
+    \       'html': {
+    \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+    \       },
+    \       'css': 0,
+    \   }
+    \}
+
+
+    augroup myvimrchooks
+        au!
+        autocmd bufwritepost .vimrc source ~/.vimrc
+    augroup END
+

@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Create project's sessions. This function make 'console' and 'code' session for
+# a project
+# @params name. Name of project
+
+txp () {
+    chk_project_name_arg $1
+
+    tmux new-session -s code-$1 -n code -d
+    echo -e "\e[1m\e[34m Code session for $1 is created.\e[0m"
+
+    tmux new-session -s console-$1 -n console -d
+    echo -e "\e[1m\e[34m Console session for $1 is created.\e[0m"
+}
+
+
+# Kill project's sessions. This function kill 'console' and 'code' session for
+# a project
+# @params name. Name of project
+
+txdp () {
+    chk_project_name_arg $1
+    tmux kill-session -t code-$1
+    echo -e "\e[1m\e[95m Console session for $1 is kill.\e[0m"
+
+    tmux kill-session -t console-$1
+    echo -e "\e[1m\e[95m Console session for $1 is kill.\e[0m"
+}
+
+
+# Check if project name is passed lie parameter to the function
+
+chk_project_name_arg () {
+    if [ -z "$1" ]; then
+        echo -e "\e[1m\e[91m The project name is required.\e[0m"
+        exit
+    fi
+}

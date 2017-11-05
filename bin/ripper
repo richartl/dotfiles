@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Get the relative paths
+
+ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+: "${RIPPER_ROOT:?Need to set and non-empty. Please set this variable in your profile, bashrc or zshrc file}"
+: "${RIPPER_MEDIA_ROOT:?Need to set and non-empty. Please set this variable in your profile, bashrc or zshrc file}"
+
+cd "$ROOT_DIR"
+source ./utils
+source ./media
+
+$@
