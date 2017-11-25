@@ -6,14 +6,10 @@
     export JENV_ROOT=/home/$USER/.jenv/
     export RIPPER_ROOT=/home/$USER/.ripper
     export RIPPER_MEDIA_ROOT=/home/$USER/mysync/
+    export ANDROID_HOME=/home/$USER/Android/Sdk
+    export JAVA_HOME=/usr/lib/jvm/java-8-jdk
     export MYNAME=CANDO
-
-    export TTC_BOTS='tinycarebot,selfcare_bot,magicrealismbot'
-    export TTC_REPOS='~/mywork/vinco/troop'
-    export TTC_WEATHER='Mexico'
-    export TTC_CELSIUS=true
-    export TTC_APIKEYS=true
-    export TTC_UPDATE_INTERVAL=10
+    export LC_ALL=en_MX.UTF-8
 
 # System configs
     export EDITOR='vim'
@@ -107,7 +103,7 @@
 
 # Exports
     export LANG=en_US.UTF-8
-    export PATH="/home/$USER/.bin:$JENV_ROOT/bin:$PYENV_SHIMS:$PATH:$HOME/.rvm/bin:$PYENV_ROOT/bin" # Add RVM to PATH for scripting
+    export PATH="/home/$USER/.bin:$JENV_ROOT/bin:$PYENV_SHIMS:$PATH:$HOME/.rvm/bin:$PYENV_ROOT/bin:$JAVA_HOME/lib" # Add RVM to PATH for scripting
     export SSH_KEY_PATH="~/.ssh/dsa_id"
     export NVM_DIR="/home/$USER/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -142,3 +138,4 @@
 
 chmod +x ~/.vocab
 ~/.vocab
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
