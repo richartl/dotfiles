@@ -9,7 +9,7 @@
     export ANDROID_HOME=/home/$USER/Android/Sdk
     export JAVA_HOME=/usr/lib/jvm/java-8-jdk
     export MYNAME=CANDO
-    export LC_ALL=en_MX.UTF-8
+    export LC_ALL="en_US.utf8"
 
 # System configs
     export EDITOR='vim'
