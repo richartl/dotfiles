@@ -1,11 +1,6 @@
 
 # Path to your oh-my-zsh installation.
     export ZSH=/home/$USER/.oh-my-zsh
-    export PYENV_ROOT=/home/$USER/.pyenv/
-    export PYENV_SHIMS=/home/$USER/.pyenv/shims/
-    export JENV_ROOT=/home/$USER/.jenv/
-    export RIPPER_ROOT=/home/$USER/.ripper
-    export RIPPER_MEDIA_ROOT=/home/$USER/mysync/
     export ANDROID_HOME=/home/$USER/Android/Sdk
     export JAVA_HOME=/usr/lib/jvm/java-8-jdk
     export MYNAME=CANDO
@@ -14,25 +9,6 @@
 # System configs
     export EDITOR='vim'
     export TERM="xterm-256color"
-
-# Set name of the theme to load.
-    #ZSH_THEME="powerlevel9k/powerlevel9k"
-    ZSH_THEME="agnoster"
-    POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-    POWERLEVEL9K_DISABLE_RPROMPT=true
-    POWERLEVEL9K_MODE='awesome-fontconfig'
-
-    POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='004'
-    POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='255'
-
-    POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='244'
-    POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='255'
-
-    POWERLEVEL9K_DIR_HOME_BACKGROUND='244'
-    POWERLEVEL9K_DIR_HOME_FOREGROUND='255'
-
-    POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='244'
-    POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='255'
 
 
 # Uncomment the following line to use case-sensitive completion.
@@ -103,7 +79,7 @@
 
 # Exports
     export LANG=en_US.UTF-8
-    export PATH="/home/$USER/.bin:$JENV_ROOT/bin:$PYENV_SHIMS:$PATH:$HOME/.rvm/bin:$PYENV_ROOT/bin:$JAVA_HOME/lib" # Add RVM to PATH for scripting
+    export PATH="/home/$USER/.bin:$PATH:$HOME/.rvm/bin:$JAVA_HOME/lib" # Add RVM to PATH for scripting
     export SSH_KEY_PATH="~/.ssh/dsa_id"
     export NVM_DIR="/home/$USER/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -132,10 +108,4 @@
     zle -N zle-keymap-select
     export KEYTIMEOUT=1
 
-# Evals
-    eval "$(jenv init -)"
-    eval "$(pyenv init -)"
-
-chmod +x ~/.vocab
-~/.vocab
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
