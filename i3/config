@@ -45,12 +45,6 @@ font pango:System San Francisco Display 11
 focus_follows_mouse no
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+c restart
-# cl    ass                 border  backgr. text    indic.  child_border
-client.focused         	$foreground_i3wmthemer	$background_i3wmthemer	$foreground_i3wmthemer	$color04_i3wmthemer		$color04_i3wmthemer
-client.focused_inactive	$foreground_i3wmthemer	$background_i3wmthemer	$foreground_i3wmthemer	$background_i3wmthemer	$background_i3wmthemer
-client.unfocused       	$foreground_i3wmthemer	$background_i3wmthemer	$foreground_i3wmthemer	$background_i3wmthemer	$background_i3wmthemer
-client.urgent		        $foreground_i3wmthemer	$background_i3wmthemer	$foreground_i3wmthemer	$background_i3wmthemer	$background_i3wmthemer
-client.background	$background_i3wmthemer
 gaps inner 10
 gaps outer -4
 smart_gaps on
