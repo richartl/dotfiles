@@ -8,47 +8,45 @@
 ;=====================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #222
-background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+background = #2D3142
+background-alt = #2D3142
+foreground = #FEFCFD
+foreground-alt = #FEFCFD
+primary = #FEFCFD
+secondary = #464655
+alert = #464655
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 27
-;offset-x = 1%
-;offset-y = 1%
-radius = 6.0
+height = 40
+offset-x = 1%
+offset-y = 1%
+radius = 1.0
 fixed-center = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
+line-size = 1
 line-color = #f00
 
-border-size = 4
-border-color = #00000000
+border-size = 2
+border-color = #000000
 
-padding-left = 0
-padding-right = 2
+padding-left = 5
+padding-right = 5
 
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
+font-0 = fixed:pixelsize=13;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm i3
-modules-center = 
-modules-right = filesystem xbacklight volume xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-center =
+modules-right = volume xkeyboard memory cpu wlan eth battery date
 
 tray-position = right
 tray-padding = 2
@@ -189,7 +187,7 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
+format-underline = #464655
 label = %percentage%%
 
 [module/memory]
@@ -197,12 +195,12 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
+format-underline = #464655
 label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp58s0
+interface = wlp60s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -221,10 +219,11 @@ ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground-alt}
+format-underline = #464655
 
 [module/eth]
 type = internal/network
-interface = docker0
+interface = enp59s0
 interval = 3.0
 
 format-connected-underline = #55aa55
@@ -237,6 +236,7 @@ format-disconnected =
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
+format-underline = #464655
 
 [module/date]
 type = internal/date
@@ -250,29 +250,28 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
-
+format-underline = #464655
 label = %date% %time%
 
 [module/volume]
 type = internal/volume
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL
+label-volume = vol
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = " "
+format-muted-prefix = ""
 format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
+label-muted = muted
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
+bar-volume-foreground-0 = #464655
+bar-volume-foreground-1 = #464655
+bar-volume-foreground-2 = #464655
+bar-volume-foreground-3 = #464655
+bar-volume-foreground-4 = #464655
+bar-volume-foreground-5 = #464655
+bar-volume-foreground-6 = #464655
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
@@ -284,8 +283,8 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
-battery = BAT0
-adapter = AC
+battery = BAT1
+adapter = ACAD
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
@@ -315,7 +314,7 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #f50a4d
+format-underline = ${colors.secondary}
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
