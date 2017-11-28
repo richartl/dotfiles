@@ -10,7 +10,7 @@
     export TERM="xterm-256color"
     ZSH_THEME="agnoster"
     DISABLE_AUTO_TITLE="false"
-    ENABLE_CORRECTION="true"
+    ENABLE_CORRECTION="false"
     plugins=(git wd vi-mode)
     source $ZSH/oh-my-zsh.sh
 
