@@ -32,6 +32,9 @@
     export NVM_DIR="/home/$USER/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+# Alias
+    alias txa="tmux a -t"
+
 #Powerline
     if [ -d "$HOME/.local/bin" ]; then
         PATH="$HOME/.local/bin:$PATH"

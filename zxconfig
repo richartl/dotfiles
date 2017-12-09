@@ -1,0 +1,12 @@
+[zx]
+background=0x2C3E50
+border_color=0x7F8C8D
+border=1
+floating=0
+font_color=0xFFFFFF
+daemon=0
+pin_bottom=1
+height=25
+font_type=pango
+font=DejaVu Sans Mono 4
+floating_windows=Authy;Spotify
