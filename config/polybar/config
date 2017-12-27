@@ -49,7 +49,7 @@ modules-center = mpd
 modules-right = xbacklight volume xkeyboard memory cpu wlan eth battery date
 
 tray-position = right
-tray-padding = 2
+tray-padding = 0
 ;tray-transparent = true
 ;tray-background = #0063ff
 
