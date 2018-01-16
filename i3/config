@@ -105,7 +105,7 @@ exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec --no-startup-id franz-bin
 exec --no-startup-id twmnd
-exec sh /home/$USER/.ripper/screens/$MYNAME.sh
+exec sh /home/$USER/.screenlayout/default.sh
 
 # change focus
 bindsym $mod+h     focus left
