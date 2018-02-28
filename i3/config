@@ -106,6 +106,7 @@ exec --no-startup-id xautolock -time 10 -locker blurlock
 exec --no-startup-id franz-bin
 exec --no-startup-id twmnd
 exec sh /home/$USER/.screenlayout/default.sh
+exec xset -b
 
 # change focus
 bindsym $mod+h     focus left
