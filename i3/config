@@ -232,25 +232,19 @@ for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [title="Spotify"] floating enable, move scratchpad, scratchpad show, resize set 1300 800, move position center, mark spotify
 for_window [title="Google Play Music Desktop Player"] floating enable, move scratchpad, scratchpad show, resize set 900 800, move position center, mark gmusic
-for_window [title="Inbox • Nozbe"] floating enable, move scratchpad, scratchpad show, resize set 1500 800, move position center, mark nozbe
-for_window [class="Franz"] floating enable, move scratchpad, scratchpad show, resize set 1500 900, move position center, mark franz
-for_window [title="todoist"] floating enable, move scratchpad, scratchpad show, resize set 900 800, move position center, mark todo
-for_window [title="Pomodoro Timer"] floating enable, move scratchpad, scratchpad show, resize set 600 900, move position center, mark timer
+for_window [class="Rambox"] floating enable, move scratchpad, scratchpad show, resize set 1500 900, move position center, mark rambox
 for_window [instance="yakuake"] floating enable;
 # Shortcuts
 bindsym $mod_a+Shift+d --no-startup-id exec dolphin
 bindsym $mod_a+Shift+s exec --no-startup-id spotify
 bindsym $mod_a+Shift+m exec --no-startup-id gpmdp
-bindsym $mod_a+Shift+p exec /usr/bin/chromium --profile-directory=Default --app-id=hfgjlgjnpkpmnpojkkpfkogapiclopop
-bindsym $mod_a+Shift+f exec --no-startup-id franz-bin
-bindsym $mod_a+Shift+t exec /usr/bin/chromium --profile-directory=Default --app-id=bgjohebimpjdhhocbknplfelpmdhifhd
+bindsym $mod_a+Shift+r exec --no-startup-id rambox
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # Scratchpad windows
 bindsym $mod_a+s [con_mark="^spotify$"] scratchpad show
 bindsym $mod_a+m [con_mark="^gmusic$"] scratchpad show
-bindsym $mod_a+n [con_mark="^nozbe$"] scratchpad show
-bindsym $mod_a+f [con_mark="^franz$"] scratchpad show
+bindsym $mod_a+r [con_mark="^rambox$"] scratchpad show
 bindsym $mod_a+p [con_mark="^timer$"] scratchpad show
 
 
