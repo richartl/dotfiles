@@ -2,7 +2,8 @@
     export ZSH=/home/$USER/.oh-my-zsh
     export ANDROID_HOME=/home/$USER/Android/Sdk
     export JAVA_HOME=/usr/lib/jvm/java-8-jdk
-    export MYNAME=CANDO
+    export TUSK_HOME=/opt/Tusk
+    export MYNAME=ALIENWARE
     export LC_ALL="en_US.utf8"
 
 # System configs
@@ -27,7 +28,7 @@
 
 # Exports
     export LANG=en_US.UTF-8
-    export PATH="/home/$USER/.bin:$PATH:$HOME/.rvm/bin:$JAVA_HOME/lib" # Add RVM to PATH for scripting
+    export PATH="/home/$USER/.bin:$PATH:$HOME/.rvm/bin:$JAVA_HOME/lib:$TUSK_HOME" # Add RVM to PATH for scripting
     export SSH_KEY_PATH="~/.ssh/dsa_id"
     export NVM_DIR="/home/$USER/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

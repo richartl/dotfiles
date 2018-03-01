@@ -37,53 +37,14 @@ set $workspace14 "14: "
 set $workspace15 "15: "
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 1
-new_float pixel 1
+new_window pixel 3
+new_float pixel 3
 hide_edge_borders both
 floating_modifier $mod
 font pango:System San Francisco Display 11
 focus_follows_mouse no
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+c restart
-gaps inner 10
-gaps outer -4
-smart_gaps on
-smart_borders on
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
-
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
-
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
-
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
 
 bindsym $mod+Return exec gnome-terminal
 bindsym $mod+Shift+q kill
@@ -100,10 +61,8 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
-exec --no-startup-id start_conky_maia
-exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
-exec --no-startup-id franz-bin
+exec --no-startup-id rambox
 exec --no-startup-id twmnd
 exec sh /home/$USER/.screenlayout/default.sh
 exec xset -b
@@ -233,18 +192,21 @@ for_window [class="Xfburn"] floating enable
 for_window [title="Spotify"] floating enable, move scratchpad, scratchpad show, resize set 1300 800, move position center, mark spotify
 for_window [title="Google Play Music Desktop Player"] floating enable, move scratchpad, scratchpad show, resize set 900 800, move position center, mark gmusic
 for_window [class="Rambox"] floating enable, move scratchpad, scratchpad show, resize set 1500 900, move position center, mark rambox
+for_window [class="Tusk"] floating enable, move scratchpad, scratchpad show, resize set 1500 900, move position center, mark tusk
 for_window [instance="yakuake"] floating enable;
 # Shortcuts
 bindsym $mod_a+Shift+d --no-startup-id exec dolphin
 bindsym $mod_a+Shift+s exec --no-startup-id spotify
 bindsym $mod_a+Shift+m exec --no-startup-id gpmdp
 bindsym $mod_a+Shift+r exec --no-startup-id rambox
+bindsym $mod_a+Shift+e exec --no-startup-id tusk-app
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # Scratchpad windows
 bindsym $mod_a+s [con_mark="^spotify$"] scratchpad show
 bindsym $mod_a+m [con_mark="^gmusic$"] scratchpad show
 bindsym $mod_a+r [con_mark="^rambox$"] scratchpad show
+bindsym $mod_a+r [con_mark="^tusk$"] scratchpad show
 bindsym $mod_a+p [con_mark="^timer$"] scratchpad show
 
 
@@ -283,6 +245,15 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
 
 # Lock screen
 bindsym $mod_a+9 exec --no-startup-id blurlock

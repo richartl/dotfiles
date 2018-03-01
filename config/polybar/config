@@ -10,6 +10,7 @@
 [colors]
 background = #2D3142
 background-alt = #2D3142
+background-active = #1eaa67
 foreground = #FEFCFD
 foreground-alt = #FEFCFD
 primary = #FEFCFD
@@ -48,7 +49,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm i3
-modules-center = mpd
+modules-center = mpd pomo
 modules-right = xbacklight volume xkeyboard memory cpu wlan eth battery date
 
 tray-position = right
@@ -101,7 +102,8 @@ label-unmounted-foreground = ${colors.foreground-alt}
 type = internal/bspwm
 
 label-focused = %index%
-label-focused-background = ${colors.background-alt}
+label-focused-background = ${colors.background-active}
+label-focused-inactive = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
@@ -356,6 +358,30 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+[module/ewmh]
+type = internal/xworkspaces
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = true
+
+; Create click handler used to focus desktop
+; Default: true
+enable-click = false
+
+; Create scroll handlers used to cycle desktops
+; Default: true
+enable-scroll = false
+
+[module/pomo]
+type = custom/script
+interval = 1
+exec = pomo status
 
 [settings]
 screenchange-reload = true
