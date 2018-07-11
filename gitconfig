@@ -7,3 +7,5 @@
 	email = ricardo.pcan@gmail.com
 	name = ripper
 
+[cola]
+	spellcheck = false
