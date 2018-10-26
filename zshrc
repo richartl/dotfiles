@@ -5,6 +5,7 @@
     export TUSK_HOME=/opt/Tusk
     export MYNAME=ALIENWARE
     export LC_ALL="en_US.utf8"
+    export GOPATH=/home/$USER/go
 
 # System configs
     export EDITOR="vim"
@@ -28,7 +29,7 @@
 
 # Exports
     export LANG=en_US.UTF-8
-    export PATH="/home/$USER/.bin:$PATH:$HOME/.rvm/bin:$JAVA_HOME/lib:$TUSK_HOME" # Add RVM to PATH for scripting
+    export PATH="/home/$USER/.bin:$PATH:$HOME/.rvm/bin:$JAVA_HOME/lib:$TUSK_HOME:$GOPATH/bin" # Add RVM to PATH for scripting
     export SSH_KEY_PATH="~/.ssh/dsa_id"
     export NVM_DIR="/home/$USER/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
