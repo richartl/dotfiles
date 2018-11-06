@@ -32,6 +32,7 @@ chk_project_name_arg () {
 }
 
 work () {
+    twmnc -t 'Is Time to work' -c 'Work Champion Work'
     i3-msg 'mode "pomodoro"'
     IFS=:
     set -- $*
@@ -43,10 +44,13 @@ work () {
         secs=$(( $secs - 1 ))
         wait
     done
+    paplay /home/$USER/.bin/notification.ogg
+    rest 00:15:00
     echo
 }
 
 rest () {
+    twmnc -t 'Rest' -c 'Go to drink water or something'
     i3-msg 'mode "default"'
     IFS=:
     set -- $*
@@ -58,6 +62,8 @@ rest () {
         secs=$(( $secs - 1 ))
         wait
     done
+    paplay /home/$USER/.bin/notification.ogg
+    work 00:15:00
     echo
 }
 

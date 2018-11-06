@@ -337,6 +337,8 @@ mode "pomodoro" {
 
     bindsym $mod_a+Shift+n exec setxkbmap latam;exec twmnc -t 'Change Language' -c 'Change to LATAM'
     bindsym $mod_a+Shift+e exec setxkbmap us;exec twmnc -t 'Change Language' -c 'Change to US'
+
+    bindsym $mod_a+p [con_mark="^pomodoro"] scratchpad show
 }
 
 bindsym $mod+Escape mode "pomodoro"
