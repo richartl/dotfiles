@@ -260,22 +260,83 @@ bindsym $mod_a+9 exec --no-startup-id blurlock
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-# Start i3bar to display a workspace bar (plus the system information i3status if available)
-#bar {
-	#status_command i3status
-	#bindsym button4 nop
-	#bindsym button5 nop
-	#font pango:System San Francisco Display,Icons 13
-    #position top
+# Pomodoro Mode
+mode "pomodoro" {
+    bindsym $mod+Escape mode "default"
+    bindsym $mod+Return exec gnome-terminal --hide-menubar
+    bindsym $mod+Shift+q kill
+    bindsym $mod+d exec rofi -show run
 
-	#colors {
-    #    separator $base03
-    #    background $base01
-    #    statusline $base05
-#                          border  backgr. text
-    #    focused_workspace  $base01 $base01    $base07
-    #    active_workspace   $base01 $base02    $base03
-    #    inactive_workspace $base01 $base01    $base03
-    #    urgent_workspace   $base01 $base01    $base08
-    #    }
-#}
+    # change focus
+    bindsym $mod+h     focus left
+    bindsym $mod+j     focus down
+    bindsym $mod+k     focus up
+    bindsym $mod+l     focus right
+    bindsym $mod+Left  focus left
+    bindsym $mod+Down  focus down
+    bindsym $mod+Up    focus up
+    bindsym $mod+Right focus right
+
+    # move focused window
+    bindsym $mod+Shift+h     move left
+    bindsym $mod+Shift+j     move down
+    bindsym $mod+Shift+k     move up
+    bindsym $mod+Shift+l     move right
+    bindsym $mod+Shift+Left  move left
+    bindsym $mod+Shift+Down  move down
+    bindsym $mod+Shift+Up    move up
+    bindsym $mod+Shift+Right move right
+
+    # switch to workspace
+    bindsym $mod+1 workspace $workspace1
+    bindsym $mod+2 workspace $workspace2
+    bindsym $mod+3 workspace $workspace3
+    bindsym $mod+4 workspace $workspace4
+    bindsym $mod+5 workspace $workspace5
+    bindsym $mod+6 workspace $workspace6
+    bindsym $mod+7 workspace $workspace7
+    bindsym $mod+8 workspace $workspace8
+    bindsym $mod+9 workspace $workspace9
+    bindsym $mod+0 workspace $workspace10
+    bindsym $mod+F1 workspace $workspace11
+    bindsym $mod+F2 workspace $workspace12
+    bindsym $mod+F3 workspace $workspace13
+    bindsym $mod+F4 workspace $workspace14
+    bindsym $mod+F5 workspace $workspace15
+
+    #navigate workspaces next / previous
+    bindsym $mod+Ctrl+l workspace next
+    bindsym $mod+Ctrl+h workspace prev
+
+    # Move wordspace to other output
+    bindsym $mod+$mod_a+l move workspace to output left
+    bindsym $mod+$mod_a+Left move workspace to output left
+    bindsym $mod+$mod_a+h move workspace to output right
+    bindsym $mod+$mod_a+Right move workspace to output right
+    bindsym $mod+$mod_a+k move workspace to output up
+    bindsym $mod+$mod_a+Up move workspace to output up
+    bindsym $mod+$mod_a+j move workspace to output down
+    bindsym $mod+$mod_a+Down move workspace to output down
+
+    # Move to workspace with focused container
+    bindsym $mod+Shift+1 move container to workspace $workspace1; workspace $workspace1
+    bindsym $mod+Shift+2 move container to workspace $workspace2; workspace $workspace2
+    bindsym $mod+Shift+3 move container to workspace $workspace3; workspace $workspace3
+    bindsym $mod+Shift+4 move container to workspace $workspace4; workspace $workspace4
+    bindsym $mod+Shift+5 move container to workspace $workspace5; workspace $workspace5
+    bindsym $mod+Shift+6 move container to workspace $workspace6; workspace $workspace6
+    bindsym $mod+Shift+7 move container to workspace $workspace7; workspace $workspace7
+    bindsym $mod+Shift+8 move container to workspace $workspace8; workspace $workspace8
+    bindsym $mod+Shift+9 move container to workspace $workspace9; workspace $workspace9
+    bindsym $mod+Shift+0 move container to workspace $workspace10; workspace $workspace10
+    bindsym $mod+Shift+F1 move container to workspace $workspace11; workspace $workspace11
+    bindsym $mod+Shift+F2 move container to workspace $workspace12; workspace $workspace12
+    bindsym $mod+Shift+F3 move container to workspace $workspace13; workspace $workspace13
+    bindsym $mod+Shift+F4 move container to workspace $workspace14; workspace $workspace14
+    bindsym $mod+Shift+F5 move container to workspace $workspace15; workspace $workspace15
+
+    bindsym $mod_a+Shift+n exec setxkbmap latam;exec twmnc -t 'Change Language' -c 'Change to LATAM'
+    bindsym $mod_a+Shift+e exec setxkbmap us;exec twmnc -t 'Change Language' -c 'Change to US'
+}
+
+bindsym $mod+Escape mode "pomodoro"

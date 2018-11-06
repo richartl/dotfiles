@@ -6,6 +6,7 @@
     export MYNAME=ALIENWARE
     export LC_ALL="en_US.utf8"
     export GOPATH=/home/$USER/go
+    export CUSTOM_BIN=/home/$USER/.bin
 
 # System configs
     export EDITOR="vim"

@@ -390,8 +390,8 @@ format-prefix = 
 format = <label>
 exec = python /usr/local/bin/spotify_status.py -f '{artist} : {song}'
 format-underline = #1db954
-click-left = /usr/bin/spotifycli --playpause
-scroll-up = /usr/bin/spotifycli --next
-scroll-down = /usr/bin/spotifycli --prev
+click-left = python /usr/local/bin/spotifycli.py --playpause
+scroll-up = python /usr/local/bin/spotifycli.py --next
+scroll-down = python /usr/local/bin/spotifycli.py --prev
 
 ; vim:ft=dosini
