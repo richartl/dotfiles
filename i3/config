@@ -52,6 +52,7 @@ bindsym $mod+d exec rofi -show run
 bindsym $mod_a+d exec rofi -show ssh
 bindsym $mod_a+w exec rofi -show window
 bindsym $mod+z exec --no-startup-id morc_menu
+bindsym $mod_a+z exec --no-startup-id exec i3zen
 
 # On start
 exec --no-startup-id volumeicon
@@ -160,6 +161,8 @@ bindsym $mod+minus scratchpad show
 bindsym $mod_a+Shift+n exec setxkbmap latam;exec twmnc -t 'Change Language' -c 'Change to LATAM'
 bindsym $mod_a+Shift+e exec setxkbmap us;exec twmnc -t 'Change Language' -c 'Change to US'
 
+
+
 # Open applications on specific workspaces
 assign [class="Dolphin"] $workspace2
 
@@ -205,7 +208,6 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # Scratchpad windows
 bindsym $mod_a+s [con_mark="^spotify$"] scratchpad show
-#bindsym $mod_a+m [con_mark="^gmusic$"] scratchpad show
 bindsym $mod_a+r [con_mark="^rambox$"] scratchpad show
 bindsym $mod_a+p [con_mark="^pomodoro"] scratchpad show
 
@@ -342,3 +344,25 @@ mode "pomodoro" {
 }
 
 bindsym $mod+Escape mode "pomodoro"
+
+
+# Mark Mode
+mode "mark" {
+    bindsym a mark mark_a, move scratchpad, mode "default"
+    bindsym b mark mark_b, move scratchpad, mode "default"
+    bindsym c mark mark_c, move scratchpad, mode "default"
+    bindsym d mark mark_d, move scratchpad, mode "default"
+
+    bindsym Escape mode "default"
+}
+
+mode "mark_show" {
+    bindsym a [con_mark="mark_a"] scratchpad show, mode "default"
+    bindsym b [con_mark="mark_b"] scratchpad show, mode "default"
+    bindsym c [con_mark="mark_c"] scratchpad show, mode "default"
+    bindsym d [con_mark="mark_d"] scratchpad show, mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+apostrophe mode "mark_show"
+bindsym $mod+m mode "mark"

@@ -6,6 +6,7 @@
     Plugin 'junegunn/vim-emoji'
     Plugin 'maxmellon/vim-jsx-pretty'
     Plugin 'nvie/vim-flake8'
+    Plugin 'junegunn/goyo.vim'
 
 "NERDTree
     let g:NERDTreeWinPos = "right"
