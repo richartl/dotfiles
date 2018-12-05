@@ -358,5 +358,5 @@ mode "mark_show" {
     bindsym Escape mode "default"
 }
 
-bindsym $mod+apostrophe mode "mark_show"
-bindsym $mod+m mode "mark"
+bindsym $mod_a+apostrophe mode "mark_show"
+bindsym $mod_a+m mode "mark"
