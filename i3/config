@@ -63,8 +63,6 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec --no-startup-id xautolock -time 10 -locker blurlock
-exec --no-startup-id rambox
-exec --no-startup-id twmnd
 exec --no-startup-id yakuake
 exec sh /home/$USER/.screenlayout/default.sh
 exec xset -b

@@ -228,7 +228,7 @@ label-urgent-background = ${colors.my_background}
 label-urgent-underline = ${colors.my_bottom_background}
 label-urgent-padding = 6
 
-label-separator = |
+;label-separator = |
 label-separator-foreground = ${colors.my_foreground}
 
 

@@ -14,7 +14,7 @@
 
 "Theme
     syntax on
-    colorscheme onedark
+    colorscheme solarized8_dark
 
     hi ColorColumn ctermbg=234 guibg=#293739
 
