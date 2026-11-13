@@ -1,11 +1,50 @@
-theme = catppuccin-mocha
+# ============================================================
+# FANZINE ☠
+# Misma paleta que tmux/tmux.conf y nvim/colors/fanzine.lua:
+#   tinta #0b0b0b · papel #efe9dc · rosa #ff2a6d
+#   ácido #f7e600 · sangre #e10600 · xerox #2de2e6
+#   azul risografía #3d5afe
+# ============================================================
 
+background = #0b0b0b
+foreground = #efe9dc
+
+cursor-color = #f7e600
+cursor-text = #0b0b0b
+
+selection-background = #ff2a6d
+selection-foreground = #0b0b0b
+
+# Normales
+palette = 0=#2a2a2a
+palette = 1=#e10600
+palette = 2=#2de2e6
+palette = 3=#f7e600
+palette = 4=#3d5afe
+palette = 5=#ff2a6d
+palette = 6=#2de2e6
+palette = 7=#efe9dc
+
+# Brillantes
+palette = 8=#6b6b6b
+palette = 9=#ff3b30
+palette = 10=#7ff3f5
+palette = 11=#fff35c
+palette = 12=#7b8cff
+palette = 13=#ff6b9a
+palette = 14=#7ff3f5
+palette = 15=#ffffff
+
+# ------------------------------------------------------------
+# Fuente y ventana
+# ------------------------------------------------------------
 font-family = JetBrainsMono Nerd Font
 font-size = 15
 
 background-opacity = 0.95
 window-padding-x = 10
 window-padding-y = 10
+window-theme = dark
 
 cursor-style = block
 cursor-style-blink = true

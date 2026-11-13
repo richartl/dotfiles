@@ -183,8 +183,8 @@ hl("NvimTreeCursorLine",       { bg = c.ink2 })
 -- Colores del :terminal
 -- ------------------------------------------------------------
 local term = {
-  c.ink, c.blood, c.xerox, c.acid, "#5f87ff", c.pink, c.xerox, c.paper,
-  c.grey, c.blood, c.xerox, c.acid, "#87afff", c.pink, c.xerox, "#ffffff",
+  c.ink3, c.blood, c.xerox, c.acid, "#3d5afe", c.pink, c.xerox, c.paper,
+  c.grey, "#ff3b30", "#7ff3f5", "#fff35c", "#7b8cff", "#ff6b9a", "#7ff3f5", "#ffffff",
 }
 for i, color in ipairs(term) do
   vim.g["terminal_color_" .. (i - 1)] = color
