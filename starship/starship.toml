@@ -1,46 +1,66 @@
+# ============================================================
+# FANZINE ☠
+# Prompt como carta de rescate: cada dato es un recorte pegado
+# con su propio color. Misma paleta que tmux, nvim y ghostty:
+#   tinta #0b0b0b · papel #efe9dc · gris #2a2a2a
+#   rosa #ff2a6d · ácido #f7e600 · sangre #e10600
+#   xerox #2de2e6 · riso #3d5afe
+# ============================================================
+
 format = "$directory$git_branch$git_status$docker_context$kubernetes$nodejs$python$golang$java$terraform$cmd_duration$line_break$character"
 
 [directory]
-style = "bold cyan"
+style = "bg:#f7e600 fg:#0b0b0b bold"
+format = "[ $path ]($style)[$read_only]($read_only_style) "
 truncation_length = 3
 truncate_to_repo = true
+read_only = " RO "
+read_only_style = "bg:#e10600 fg:#efe9dc bold"
 
 [git_branch]
-symbol = " "
-style = "bold purple"
+symbol = " "
+style = "bg:#ff2a6d fg:#0b0b0b bold"
+format = "[ $symbol$branch ]($style) "
 
 [git_status]
-style = "bold red"
+style = "bg:#e10600 fg:#efe9dc bold"
+format = "([ $all_status$ahead_behind ]($style) )"
 
 [docker_context]
-symbol = "🐳 "
-style = "blue"
+style = "bg:#efe9dc fg:#0b0b0b bold"
+format = "[ DOCKER $context ]($style) "
 
 [kubernetes]
 disabled = false
-symbol = "☸️ "
-style = "bold blue"
-format = '[$symbol$context( $namespace)]($style) '
+style = "bg:#2de2e6 fg:#0b0b0b bold"
+format = "[ K8S $context( · $namespace) ]($style) "
 
 [nodejs]
-symbol = "⬢ "
+style = "bg:#2a2a2a fg:#efe9dc bold"
+format = "[ NODE $version ]($style) "
 
 [python]
-symbol = " "
+style = "bg:#efe9dc fg:#0b0b0b bold"
+format = "[ PY $version( \\($virtualenv\\)) ]($style) "
 
 [golang]
-symbol = " "
+style = "bg:#2a2a2a fg:#efe9dc bold"
+format = "[ GO $version ]($style) "
 
 [java]
-symbol = " "
+style = "bg:#efe9dc fg:#0b0b0b bold"
+format = "[ JAVA $version ]($style) "
 
 [terraform]
-symbol = "💠 "
+style = "bg:#3d5afe fg:#efe9dc bold"
+format = "[ TF $workspace ]($style) "
 
 [cmd_duration]
 min_time = 1000
-format = "took [$duration](yellow) "
+style = "fg:#f7e600 bold"
+format = "[TOOK $duration]($style) "
 
 [character]
-success_symbol = "[➜](bold green)"
-error_symbol = "[✗](bold red)"
+success_symbol = "[☠ ❯](bold #ff2a6d)"
+error_symbol = "[✖ ❯](bold #e10600)"
+vimcmd_symbol = "[❮](bold #f7e600)"
