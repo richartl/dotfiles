@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  FANZINE ☠ para bat. Misma paleta que nvim/colors/fanzine.lua:
+    tinta #0b0b0b · papel #efe9dc · gris #6b6b6b
+    rosa #ff2a6d · ácido #f7e600 · sangre #e10600 · xerox #2de2e6
+-->
+<plist version="1.0">
+<dict>
+  <key>name</key>
+  <string>fanzine</string>
+  <key>settings</key>
+  <array>
+    <dict>
+      <key>settings</key>
+      <dict>
+        <key>background</key>       <string>#0b0b0b</string>
+        <key>foreground</key>       <string>#efe9dc</string>
+        <key>caret</key>            <string>#f7e600</string>
+        <key>lineHighlight</key>    <string>#161616</string>
+        <key>selection</key>        <string>#ff2a6d</string>
+        <key>gutter</key>           <string>#0b0b0b</string>
+        <key>gutterForeground</key> <string>#444444</string>
+        <key>invisibles</key>       <string>#2a2a2a</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Comentarios</string>
+      <key>scope</key> <string>comment, punctuation.definition.comment</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#6b6b6b</string>
+        <key>fontStyle</key>  <string>italic</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Palabras clave</string>
+      <key>scope</key> <string>keyword, storage, keyword.control, keyword.other</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#ff2a6d</string>
+        <key>fontStyle</key>  <string>bold</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Operadores</string>
+      <key>scope</key> <string>keyword.operator</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#ff2a6d</string>
+        <key>fontStyle</key>  <string></string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Strings</string>
+      <key>scope</key> <string>string, punctuation.definition.string</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#2de2e6</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Escapes y regex</string>
+      <key>scope</key> <string>constant.character.escape, string.regexp</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#f7e600</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Constantes y números</string>
+      <key>scope</key> <string>constant, constant.numeric, constant.language, support.constant</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#e10600</string>
+        <key>fontStyle</key>  <string>bold</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Funciones</string>
+      <key>scope</key> <string>entity.name.function, support.function, meta.function-call variable.function</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#f7e600</string>
+        <key>fontStyle</key>  <string>bold</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Tipos y clases</string>
+      <key>scope</key> <string>entity.name.type, entity.name.class, support.type, support.class, storage.type.class</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#efe9dc</string>
+        <key>fontStyle</key>  <string>bold underline</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Variables</string>
+      <key>scope</key> <string>variable, variable.other</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#efe9dc</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Parámetros</string>
+      <key>scope</key> <string>variable.parameter</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#efe9dc</string>
+        <key>fontStyle</key>  <string>italic</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Variables especiales (self, this, $VAR)</string>
+      <key>scope</key> <string>variable.language, variable.other.readwrite.shell, variable.other.normal.shell</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#e10600</string>
+        <key>fontStyle</key>  <string>italic</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Puntuación</string>
+      <key>scope</key> <string>punctuation, meta.brace</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#6b6b6b</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Tags y claves (HTML, YAML, JSON, TOML)</string>
+      <key>scope</key> <string>entity.name.tag, support.type.property-name, meta.mapping.key string, entity.name.section</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#ff2a6d</string>
+        <key>fontStyle</key>  <string>bold</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Atributos</string>
+      <key>scope</key> <string>entity.other.attribute-name</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#f7e600</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Markdown: títulos</string>
+      <key>scope</key> <string>markup.heading, markup.heading entity.name, punctuation.definition.heading</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#ff2a6d</string>
+        <key>fontStyle</key>  <string>bold</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Markdown: código</string>
+      <key>scope</key> <string>markup.raw, markup.inline.raw</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#f7e600</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Markdown: links</string>
+      <key>scope</key> <string>markup.underline.link, string.other.link</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#2de2e6</string>
+        <key>fontStyle</key>  <string>underline</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Markdown: negritas</string>
+      <key>scope</key> <string>markup.bold</string>
+      <key>settings</key>
+      <dict>
+        <key>fontStyle</key> <string>bold</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Markdown: itálicas</string>
+      <key>scope</key> <string>markup.italic</string>
+      <key>settings</key>
+      <dict>
+        <key>fontStyle</key> <string>italic</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Diff: agregado</string>
+      <key>scope</key> <string>markup.inserted, meta.diff.header.to-file</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#2de2e6</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Diff: borrado</string>
+      <key>scope</key> <string>markup.deleted, meta.diff.header.from-file</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#e10600</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Diff: cambiado / rangos</string>
+      <key>scope</key> <string>markup.changed, meta.diff.range</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#f7e600</string>
+        <key>fontStyle</key>  <string>bold</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>  <string>Inválido</string>
+      <key>scope</key> <string>invalid, invalid.illegal</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#efe9dc</string>
+        <key>background</key> <string>#e10600</string>
+        <key>fontStyle</key>  <string>bold</string>
+      </dict>
+    </dict>
+  </array>
+</dict>
+</plist>

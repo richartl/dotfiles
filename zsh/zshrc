@@ -93,6 +93,8 @@ export VISUAL=nvim
 # Aliases
 # ----------------------------------------
 if (( $+commands[eza] )); then
+  # En macOS eza no busca en ~/.config por defecto; ahí vive theme.yml (fanzine).
+  export EZA_CONFIG_DIR="$HOME/.config/eza"
   alias ls="eza --icons"
   alias ll="eza -lah --icons --git"
   alias la="eza -la"

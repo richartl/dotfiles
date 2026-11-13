@@ -47,6 +47,14 @@ setup_dotfiles() {
   link_file "$REPO_DIR/tmux/tmux.conf"         "$HOME/.tmux.conf"
   link_file "$REPO_DIR/starship/starship.toml" "$HOME/.config/starship.toml"
   link_file "$REPO_DIR/ghostty/config"         "$HOME/.config/ghostty/config"
+  link_file "$REPO_DIR/bat"                    "$HOME/.config/bat"
+  link_file "$REPO_DIR/eza"                    "$HOME/.config/eza"
+
+  # bat solo ve temas nuevos después de reconstruir su caché.
+  if command -v bat >/dev/null 2>&1; then
+    bat cache --build >/dev/null
+    ok "caché de temas de bat reconstruida"
+  fi
 }
 
 setup_wd() {

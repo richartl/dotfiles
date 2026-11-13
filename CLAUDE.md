@@ -19,6 +19,11 @@ opcionalmente, Linux. En una máquina nueva: clonar y correr `./bootstrap.sh`.
   - `tmux/tmux.conf` → `~/.tmux.conf`
   - `starship/starship.toml` → `~/.config/starship.toml`
   - `ghostty/config` → `~/.config/ghostty/config`
+  - `bat/` → `~/.config/bat` (tema en `bat/themes/`; requiere `bat cache --build`)
+  - `eza/` → `~/.config/eza` (`theme.yml`; necesita `EZA_CONFIG_DIR` en macOS)
+- Estilo visual "fanzine": tmux, nvim (`nvim/colors/fanzine.lua`), ghostty, starship, fzf
+  (en `zsh/zshrc`), bat y eza comparten una misma paleta. Al cambiar un color o agregar
+  una herramienta con colores, mantenerla en esa paleta.
 - `docker/`: imagen "toolbox" opcional y wrapper `devops-run` (secundario: CI o máquinas ajenas).
 - `legacy/`: dotfiles viejos de Linux/i3. No se usan en el bootstrap.
 

@@ -1,0 +1,4 @@
+# bat: tema FANZINE ☠ (bat/themes/fanzine.tmTheme).
+# bootstrap.sh corre `bat cache --build` para registrarlo.
+--theme=fanzine
+--italic-text=always

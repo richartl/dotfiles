@@ -1,0 +1,106 @@
+# ============================================================
+# FANZINE ☠ para eza (ls / ll / la).
+# Misma paleta que tmux, nvim, ghostty, starship y fzf:
+#   papel #efe9dc · gris #6b6b6b · gris oscuro #444444
+#   rosa #ff2a6d · ácido #f7e600 · sangre #e10600 · xerox #2de2e6
+# ============================================================
+
+colourful: true
+
+filekinds:
+  normal: { foreground: "#efe9dc" }
+  directory: { foreground: "#f7e600", is_bold: true }
+  symlink: { foreground: "#2de2e6", is_italic: true }
+  pipe: { foreground: "#6b6b6b" }
+  block_device: { foreground: "#e10600", is_bold: true }
+  char_device: { foreground: "#e10600", is_bold: true }
+  socket: { foreground: "#6b6b6b" }
+  special: { foreground: "#ff2a6d" }
+  executable: { foreground: "#ff2a6d", is_bold: true }
+  mount_point: { foreground: "#f7e600", is_bold: true, is_underline: true }
+
+# Permisos: tú en colores fuertes, grupo en papel, otros en gris.
+perms:
+  user_read: { foreground: "#f7e600", is_bold: true }
+  user_write: { foreground: "#e10600", is_bold: true }
+  user_execute_file: { foreground: "#ff2a6d", is_bold: true }
+  user_execute_other: { foreground: "#ff2a6d", is_bold: true }
+  group_read: { foreground: "#efe9dc" }
+  group_write: { foreground: "#efe9dc" }
+  group_execute: { foreground: "#efe9dc" }
+  other_read: { foreground: "#6b6b6b" }
+  other_write: { foreground: "#6b6b6b" }
+  other_execute: { foreground: "#6b6b6b" }
+  special_user_file: { foreground: "#ff2a6d" }
+  special_other: { foreground: "#6b6b6b" }
+  attribute: { foreground: "#6b6b6b" }
+
+# Tamaños: entre más grande, más grita.
+size:
+  major: { foreground: "#efe9dc" }
+  minor: { foreground: "#efe9dc" }
+  number_byte: { foreground: "#6b6b6b" }
+  number_kilo: { foreground: "#efe9dc" }
+  number_mega: { foreground: "#f7e600" }
+  number_giga: { foreground: "#ff2a6d", is_bold: true }
+  number_huge: { foreground: "#e10600", is_bold: true }
+  unit_byte: { foreground: "#6b6b6b" }
+  unit_kilo: { foreground: "#6b6b6b" }
+  unit_mega: { foreground: "#f7e600" }
+  unit_giga: { foreground: "#ff2a6d" }
+  unit_huge: { foreground: "#e10600" }
+
+users:
+  user_you: { foreground: "#f7e600", is_bold: true }
+  user_root: { foreground: "#e10600", is_bold: true }
+  user_other: { foreground: "#efe9dc" }
+  group_yours: { foreground: "#efe9dc" }
+  group_root: { foreground: "#e10600" }
+  group_other: { foreground: "#6b6b6b" }
+
+links:
+  normal: { foreground: "#2de2e6" }
+  multi_link_file: { foreground: "#ff2a6d", is_bold: true }
+
+# Columna --git (ll)
+git:
+  new: { foreground: "#2de2e6", is_bold: true }
+  modified: { foreground: "#f7e600", is_bold: true }
+  deleted: { foreground: "#e10600", is_bold: true }
+  renamed: { foreground: "#ff2a6d" }
+  typechange: { foreground: "#ff2a6d" }
+  ignored: { foreground: "#444444" }
+  conflicted: { foreground: "#e10600", is_bold: true, is_underline: true }
+
+git_repo:
+  branch_main: { foreground: "#ff2a6d", is_bold: true }
+  branch_other: { foreground: "#f7e600" }
+  git_clean: { foreground: "#2de2e6" }
+  git_dirty: { foreground: "#e10600" }
+
+# Tipos de archivo por extensión
+file_type:
+  image: { foreground: "#ff2a6d" }
+  video: { foreground: "#ff2a6d" }
+  music: { foreground: "#2de2e6" }
+  lossless: { foreground: "#2de2e6" }
+  crypto: { foreground: "#e10600", is_bold: true }
+  document: { foreground: "#efe9dc", is_underline: true }
+  compressed: { foreground: "#f7e600", is_italic: true }
+  temp: { foreground: "#444444" }
+  compiled: { foreground: "#6b6b6b" }
+  build: { foreground: "#f7e600", is_bold: true, is_underline: true }
+  source: { foreground: "#efe9dc" }
+
+punctuation: { foreground: "#444444" }
+date: { foreground: "#2de2e6" }
+inode: { foreground: "#6b6b6b" }
+blocks: { foreground: "#6b6b6b" }
+header: { foreground: "#0b0b0b", background: "#f7e600", is_bold: true }
+octal: { foreground: "#ff2a6d" }
+flags: { foreground: "#6b6b6b" }
+
+symlink_path: { foreground: "#2de2e6" }
+control_char: { foreground: "#e10600" }
+broken_symlink: { foreground: "#efe9dc", background: "#e10600", is_bold: true }
+broken_path_overlay: { foreground: "#e10600", is_underline: true }

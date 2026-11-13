@@ -34,6 +34,11 @@ enlazarlo.
 | `tmux/tmux.conf` | `~/.tmux.conf` | prefijo `C-a` |
 | `starship/starship.toml` | `~/.config/starship.toml` | |
 | `ghostty/config` | `~/.config/ghostty/config` | JetBrainsMono Nerd Font |
+| `bat/` | `~/.config/bat` | tema `fanzine`; bootstrap corre `bat cache --build` |
+| `eza/` | `~/.config/eza` | `theme.yml`; `zsh/zshrc` exporta `EZA_CONFIG_DIR` |
+
+Todo usa la misma paleta "fanzine" (tinta `#0b0b0b`, papel `#efe9dc`, rosa `#ff2a6d`,
+ácido `#f7e600`, sangre `#e10600`, xerox `#2de2e6`). Si cambias un color, cámbialo en todos.
 
 Como son symlinks, editar `~/.tmux.conf` o la config de nvim cambia el repo directamente.
 Solo falta hacer commit.
