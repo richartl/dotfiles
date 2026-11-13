@@ -52,10 +52,24 @@ fi
 (( $+commands[fzf] ))    && eval "$(fzf --zsh)"
 (( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
 
+# Colores FANZINE ☠ (misma paleta que tmux, nvim, ghostty y starship).
+# Aplican a todo fzf: CTRL-R, CTRL-T, ALT-C y fzf directo.
+# bg:-1 deja el fondo de la terminal (respeta la opacidad de Ghostty).
+export FZF_DEFAULT_OPTS="
+  --border=sharp
+  --color=bg:-1,bg+:#2a2a2a,gutter:-1
+  --color=fg:#efe9dc,fg+:#efe9dc:bold,query:#efe9dc:bold
+  --color=hl:#ff2a6d:bold,hl+:#f7e600:bold
+  --color=prompt:#f7e600:bold,pointer:#ff2a6d:bold,marker:#2de2e6:bold
+  --color=info:#6b6b6b,spinner:#ff2a6d,header:#2de2e6
+  --color=border:#efe9dc,separator:#2a2a2a,scrollbar:#ff2a6d
+  --color=label:#0b0b0b:bold:reverse,preview-border:#6b6b6b
+"
+
 export FZF_CTRL_R_OPTS="
   --height 70%
   --layout=reverse
-  --border=rounded
+  --border=sharp
   --info=inline
   --prompt='  History ❯ '
   --pointer='▶'
