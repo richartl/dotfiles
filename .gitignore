@@ -1,0 +1,26 @@
+# Secretos y credenciales: nunca en el repo.
+.aws/
+.kube/
+.ssh/
+.docker/config.json
+*.pem
+*.key
+*.p12
+*.kubeconfig
+kubeconfig*
+.env
+.env.*
+*.tfvars
+*.tfstate
+*.tfstate.*
+.terraform/
+.vault_pass*
+credentials*
+
+# Locales de mise por proyecto.
+mise.local.toml
+.mise.local.toml
+
+# Sistema.
+.DS_Store
+*.bak.*

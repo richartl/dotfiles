@@ -1,0 +1,23 @@
+# Config global de mise. Enlazado a ~/.config/mise/config.toml por bootstrap.sh.
+# Convención: "latest" salvo que se pida fijar una versión.
+
+[tools]
+terraform = "latest"
+aws-cli   = "latest"
+kubectl   = "latest"
+helm      = "latest"
+
+# Node: LTS en lugar de latest (reemplaza a fnm).
+node = "lts"
+
+# uv lo usa el backend pipx para instalar herramientas de Python aisladas.
+uv = "latest"
+
+# ansible-core + colecciones de ansible + boto3 en el mismo entorno aislado.
+"pipx:ansible-core" = { version = "latest", uvx_args = "--with ansible --with boto3" }
+
+[settings]
+# Instalar herramientas pipx con uv (no requiere pipx).
+pipx.uvx = true
+# Respetar .nvmrc / .node-version de los proyectos (como hacía fnm --use-on-cd).
+idiomatic_version_file_enable_tools = ["node"]

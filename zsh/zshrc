@@ -1,0 +1,158 @@
+# Config portable de zsh. Se carga desde ~/.zshrc (bloque devops-env).
+# Lo específico de cada máquina (instaladores, rutas locales) va en ~/.zshrc
+# fuera del bloque.
+
+# ----------------------------------------
+# Homebrew (Apple Silicon, Intel o Linuxbrew)
+# ----------------------------------------
+if ! (( $+commands[brew] )); then
+  for _brew in /opt/homebrew/bin/brew /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew; do
+    [[ -x "$_brew" ]] && eval "$("$_brew" shellenv)" && break
+  done
+  unset _brew
+fi
+BREW_PREFIX="${HOMEBREW_PREFIX:-}"
+
+# ----------------------------------------
+# mise (terraform, kubectl, node, etc.)
+# ----------------------------------------
+(( $+commands[mise] )) && eval "$(mise activate zsh)"
+
+# ----------------------------------------
+# History
+# ----------------------------------------
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt SHARE_HISTORY
+setopt HIST_FIND_NO_DUPS
+
+# ----------------------------------------
+# Completion
+# ----------------------------------------
+[[ -d "$HOME/.docker/completions" ]] && fpath=("$HOME/.docker/completions" $fpath)
+autoload -Uz compinit && compinit
+
+# ----------------------------------------
+# Plugins
+# ----------------------------------------
+if [[ -n "$BREW_PREFIX" ]]; then
+  [[ -f "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] &&
+    source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+  [[ -f "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] &&
+    source "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
+
+# ----------------------------------------
+# fzf + zoxide
+# ----------------------------------------
+(( $+commands[fzf] ))    && eval "$(fzf --zsh)"
+(( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
+
+export FZF_CTRL_R_OPTS="
+  --height 70%
+  --layout=reverse
+  --border=rounded
+  --info=inline
+  --prompt='  History ❯ '
+  --pointer='▶'
+  --marker='✓'
+  --header=' CTRL-R: ordenar | ENTER: usar comando '
+  --bind='ctrl-r:toggle-sort'
+"
+
+# ----------------------------------------
+# Starship
+# ----------------------------------------
+(( $+commands[starship] )) && eval "$(starship init zsh)"
+
+# ----------------------------------------
+# Editor
+# ----------------------------------------
+export EDITOR=nvim
+export VISUAL=nvim
+
+# ----------------------------------------
+# Aliases
+# ----------------------------------------
+if (( $+commands[eza] )); then
+  alias ls="eza --icons"
+  alias ll="eza -lah --icons --git"
+  alias la="eza -la"
+fi
+
+(( $+commands[bat] )) && alias cat="bat"
+(( $+commands[rg] ))  && alias grep="rg"
+
+alias v="vim"
+alias nv="nvim"
+alias vim="nvim"
+
+alias g="git"
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gp="git push"
+alias gco="git checkout"
+
+alias dc="docker-compose"
+alias dps="docker ps"
+alias di="docker images"
+
+alias k="kubectl"
+alias kgp="kubectl get pods"
+alias kgs="kubectl get svc"
+alias kctx="kubectl config current-context"
+
+alias tf="terraform"
+
+alias cls="clear"
+alias python=python3
+
+# ----------------------------------------
+# PATH personal
+# ----------------------------------------
+export PATH="$HOME/.local/bin:$PATH"
+[[ -n "$BREW_PREFIX" && -d "$BREW_PREFIX/opt/libpq/bin" ]] && export PATH="$BREW_PREFIX/opt/libpq/bin:$PATH"
+
+# ----------------------------------------
+# Google Cloud SDK (si está instalado)
+# ----------------------------------------
+[[ -f "$HOME/.google-cloud-sdk/path.zsh.inc" ]]       && source "$HOME/.google-cloud-sdk/path.zsh.inc"
+[[ -f "$HOME/.google-cloud-sdk/completion.zsh.inc" ]] && source "$HOME/.google-cloud-sdk/completion.zsh.inc"
+
+# ============================================================
+# WD - Warp Directories (clonado por bootstrap en ~/.local/wd)
+# ============================================================
+wd() {
+  . "$HOME/.local/wd/wd.sh"
+}
+
+# ============================================================
+# Git Sync
+# ============================================================
+gsync() {
+  local branch
+
+  branch=$(git branch --show-current)
+
+  if [[ -z "$branch" ]]; then
+    echo "✗ No estás en una rama Git"
+    return 1
+  fi
+
+  echo "→ Fetching remote..."
+  git fetch --all --prune || return 1
+
+  echo "→ Updating $branch..."
+
+  if git rev-parse --verify --quiet "origin/$branch" >/dev/null; then
+    git merge --ff-only "origin/$branch"
+  else
+    echo "⚠ No existe origin/$branch"
+    return 1
+  fi
+}
