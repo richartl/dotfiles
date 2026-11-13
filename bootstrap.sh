@@ -57,6 +57,19 @@ setup_dotfiles() {
   fi
 }
 
+setup_git() {
+  log "git (colores fanzine)"
+  # Solo agrega un include: la identidad y el resto de ~/.gitconfig quedan locales.
+  local inc="$REPO_DIR/git/fanzine.gitconfig" current
+  current="$(git config --global --get-all include.path || true)"
+  if grep -qxF "$inc" <<<"$current"; then
+    ok "$HOME/.gitconfig ya incluye $inc"
+  else
+    git config --global --add include.path "$inc"
+    ok "$HOME/.gitconfig ahora incluye $inc"
+  fi
+}
+
 setup_wd() {
   log "wd (warp directories)"
   if [[ -d "$HOME/.local/wd/.git" ]]; then
@@ -79,6 +92,7 @@ main() {
   brew_bundle
   setup_mise
   setup_dotfiles
+  setup_git
   setup_wd
   setup_shell
   log "Listo. Abre una terminal nueva o corre: exec zsh"

@@ -36,6 +36,7 @@ enlazarlo.
 | `ghostty/config` | `~/.config/ghostty/config` | JetBrainsMono Nerd Font |
 | `bat/` | `~/.config/bat` | tema `fanzine`; bootstrap corre `bat cache --build` |
 | `eza/` | `~/.config/eza` | `theme.yml`; `zsh/zshrc` exporta `EZA_CONFIG_DIR` |
+| `git/fanzine.gitconfig` | incluido desde `~/.gitconfig` | solo colores; tu identidad queda local |
 
 Todo usa la misma paleta "fanzine" (tinta `#0b0b0b`, papel `#efe9dc`, rosa `#ff2a6d`,
 ácido `#f7e600`, sangre `#e10600`, xerox `#2de2e6`). Si cambias un color, cámbialo en todos.

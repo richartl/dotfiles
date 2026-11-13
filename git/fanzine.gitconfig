@@ -1,0 +1,72 @@
+# ============================================================
+# FANZINE ☠ para git. Solo colores: tu identidad y el resto de
+# opciones siguen en ~/.gitconfig, que incluye este archivo
+# (lo agrega bootstrap.sh con include.path).
+#
+# Misma paleta que tmux, nvim, ghostty, starship, fzf, bat y eza:
+#   tinta #0b0b0b · papel #efe9dc · gris #6b6b6b · gris2 #444444
+#   rosa #ff2a6d · ácido #f7e600 · sangre #e10600 · xerox #2de2e6
+# ============================================================
+
+[color]
+	ui = auto
+
+# git branch: la rama actual es un sticker amarillo
+[color "branch"]
+	current = "#0b0b0b #f7e600 bold"
+	local = "#efe9dc"
+	remote = "#ff2a6d"
+	upstream = "#2de2e6 bold"
+	plain = "#6b6b6b"
+
+# git diff / show / log -p
+[color "diff"]
+	meta = "#f7e600 bold"
+	frag = "#ff2a6d bold"
+	func = "#6b6b6b italic"
+	commit = "#f7e600 bold"
+	context = "#efe9dc"
+	old = "#e10600"
+	new = "#2de2e6"
+	oldMoved = "#e10600 italic"
+	newMoved = "#2de2e6 italic"
+	whitespace = "#efe9dc #e10600"
+
+# git status: lo listo para commit en cian, lo pendiente en
+# amarillo, lo no rastreado en rosa y la rama como sticker
+[color "status"]
+	header = "#6b6b6b italic"
+	branch = "#0b0b0b #ff2a6d bold"
+	localBranch = "#f7e600 bold"
+	remoteBranch = "#ff2a6d"
+	nobranch = "#efe9dc #e10600 bold"
+	added = "#2de2e6 bold"
+	updated = "#2de2e6 bold"
+	changed = "#f7e600 bold"
+	untracked = "#ff2a6d"
+	unmerged = "#efe9dc #e10600 bold"
+
+# Refs en git log --decorate: HEAD rosa, tags como sticker
+[color "decorate"]
+	HEAD = "#0b0b0b #ff2a6d bold"
+	branch = "#f7e600 bold"
+	remoteBranch = "#2de2e6"
+	tag = "#0b0b0b #efe9dc bold"
+	stash = "#6b6b6b italic"
+	grafted = "#e10600"
+
+# git grep: coincidencias resaltadas como con marcatextos
+[color "grep"]
+	filename = "#ff2a6d"
+	lineNumber = "#6b6b6b"
+	column = "#6b6b6b"
+	function = "#f7e600"
+	match = "#0b0b0b #f7e600 bold"
+	separator = "#444444"
+
+# git add -p y otros modos interactivos
+[color "interactive"]
+	prompt = "#f7e600 bold"
+	header = "#6b6b6b"
+	help = "#2de2e6"
+	error = "#efe9dc #e10600 bold"
