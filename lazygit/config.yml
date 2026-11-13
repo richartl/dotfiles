@@ -1,0 +1,58 @@
+# ============================================================
+# FANZINE ☠ para lazygit.
+# Los diffs usan los colores de git/fanzine.gitconfig.
+#
+# Misma paleta que tmux, nvim, ghostty, starship, fzf, bat, eza y git:
+#   tinta #0b0b0b · papel #efe9dc · gris #6b6b6b · gris2 #444444
+#   fotocopia #2a2a2a · rosa #ff2a6d · ácido #f7e600
+#   sangre #e10600 · xerox #2de2e6
+# ============================================================
+
+gui:
+  nerdFontsVersion: "3"
+  # Bordes rectos, nada redondeado.
+  border: single
+  theme:
+    # Panel activo: cinta amarilla; inactivos: gris fotocopia.
+    activeBorderColor:
+      - "#f7e600"
+      - bold
+    inactiveBorderColor:
+      - "#444444"
+    searchingActiveBorderColor:
+      - "#ff2a6d"
+      - bold
+    # Texto de ayuda de abajo.
+    optionsTextColor:
+      - "#2de2e6"
+    # Línea seleccionada.
+    selectedLineBgColor:
+      - "#2a2a2a"
+    inactiveViewSelectedLineBgColor:
+      - "#161616"
+    defaultFgColor:
+      - "#efe9dc"
+    # Commits marcados para cherry-pick: sticker cian.
+    cherryPickedCommitFgColor:
+      - "#0b0b0b"
+    cherryPickedCommitBgColor:
+      - "#2de2e6"
+    # Commit base marcado para rebase: sticker amarillo.
+    markedBaseCommitFgColor:
+      - "#0b0b0b"
+    markedBaseCommitBgColor:
+      - "#f7e600"
+    # Archivos con cambios sin stagear.
+    unstagedChangesColor:
+      - "#e10600"
+    # Autores de commits en rosa.
+    authorColors:
+      "*": "#ff2a6d"
+  # Spinner de calaverita.
+  spinner:
+    frames:
+      - "☠"
+      - "✖"
+      - "★"
+      - "✖"
+    rate: 120

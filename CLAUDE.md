@@ -21,11 +21,13 @@ opcionalmente, Linux. En una máquina nueva: clonar y correr `./bootstrap.sh`.
   - `ghostty/config` → `~/.config/ghostty/config`
   - `bat/` → `~/.config/bat` (tema en `bat/themes/`; requiere `bat cache --build`)
   - `eza/` → `~/.config/eza` (`theme.yml`; necesita `EZA_CONFIG_DIR` en macOS)
+  - `lazygit/` → `~/.config/lazygit` (necesita `LG_CONFIG_FILE` en macOS; lazygit puede
+    reescribir `config.yml` al migrar opciones de una versión a otra, así que revisa su diff)
 - `git/fanzine.gitconfig`: solo colores de git. Bootstrap lo agrega a `~/.gitconfig` con
   `include.path`. Nunca versionar `~/.gitconfig` completo, porque contiene nombre, correo y
   configuración de cada máquina.
 - Estilo visual "fanzine": tmux, nvim (`nvim/colors/fanzine.lua`), ghostty, starship, fzf
-  (en `zsh/zshrc`), bat, eza y git comparten una misma paleta. Al cambiar un color o agregar
+  (en `zsh/zshrc`), bat, eza, git y lazygit comparten una misma paleta. Al cambiar un color o agregar
   una herramienta con colores, mantenerla en esa paleta.
 - `docker/`: imagen "toolbox" opcional y wrapper `devops-run` (secundario: CI o máquinas ajenas).
 - `legacy/`: dotfiles viejos de Linux/i3. No se usan en el bootstrap.

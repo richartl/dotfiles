@@ -37,6 +37,7 @@ enlazarlo.
 | `bat/` | `~/.config/bat` | tema `fanzine`; bootstrap corre `bat cache --build` |
 | `eza/` | `~/.config/eza` | `theme.yml`; `zsh/zshrc` exporta `EZA_CONFIG_DIR` |
 | `git/fanzine.gitconfig` | incluido desde `~/.gitconfig` | solo colores; tu identidad queda local |
+| `lazygit/` | `~/.config/lazygit` | `zsh/zshrc` exporta `LG_CONFIG_FILE` |
 
 Todo usa la misma paleta "fanzine" (tinta `#0b0b0b`, papel `#efe9dc`, rosa `#ff2a6d`,
 ácido `#f7e600`, sangre `#e10600`, xerox `#2de2e6`). Si cambias un color, cámbialo en todos.
@@ -60,6 +61,7 @@ es propio de una máquina va ahí, fuera del bloque `devops-env`.
 | uv | mise | latest | backend para herramientas de Python |
 | git, jq, fzf, ripgrep, shellcheck | Brewfile | — | |
 | mise | Brewfile | — | |
+| gh, lazygit | Brewfile | — | `gh auth login` una vez por máquina |
 | zsh-autosuggestions, zsh-syntax-highlighting | Brewfile | — | |
 | zoxide, starship, eza, bat | Brewfile | — | |
 | tmux, neovim | Brewfile | — | |

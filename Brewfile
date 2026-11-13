@@ -9,6 +9,10 @@ brew "ripgrep"
 brew "shellcheck"
 brew "mise"
 
+# Git
+brew "gh"
+brew "lazygit"
+
 # Shell y terminal
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
