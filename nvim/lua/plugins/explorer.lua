@@ -17,10 +17,10 @@ return {
       require("dressing").setup({
         input = {
           enabled = true,
-          default_prompt = "➤ ",
+          default_prompt = "☠ ",
           trim_prompt = true,
           title_pos = "left",
-          border = "rounded",
+          border = "single",
           relative = "cursor",
           prefer_width = 50,
           max_width = { 140, 0.9 },

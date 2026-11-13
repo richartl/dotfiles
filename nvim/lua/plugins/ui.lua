@@ -6,11 +6,11 @@ return {
       require("dressing").setup({
         input = {
           enabled = true,
-          default_prompt = "➤ ",
+          default_prompt = "☠ ",
           trim_prompt = true,
           title_pos = "left",
 
-          border = "rounded",
+          border = "single",
 
           relative = "cursor",
 
